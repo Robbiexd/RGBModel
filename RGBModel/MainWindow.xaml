@@ -4,9 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RGBModel"
+        xmlns:viewmodel="clr-namespace:RGBModel.ViewModel"
         mc:Ignorable="d"
-        Title="RGB Changer" Height="450" Width="800">
+        Title="RGB Changer" Height="337.27" Width="441.919">
+    <Window.DataContext>
+        <viewmodel:MainViewModel />
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="720*"/>
+            <ColumnDefinition Width="73*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Red" HorizontalAlignment="Left" Margin="40,53,0,0" VerticalAlignment="Top" Height="37" Width="46"/>
+        <Label Content="Green" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Width="46"/>
+        <Slider x:Name="RedSlider" HorizontalAlignment="Left" Margin="168,53,0,0" VerticalAlignment="Top" Width="156" Maximum="255" Value="{Binding Red}"/>
+        <Label Content="{Binding Value, ElementName=RedSlider}" HorizontalAlignment="Left" Margin="350,53,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="GreenSlider" HorizontalAlignment="Left" Margin="168,90,0,0" VerticalAlignment="Top" Width="156" Maximum="255" Value="{Binding Green}"/>
+        <Label Content="{Binding Value, ElementName=GreenSlider}" HorizontalAlignment="Left" Margin="350,90,0,0" VerticalAlignment="Top"/>
+        <Label Content="Blue" HorizontalAlignment="Left" Margin="40,121,0,0" VerticalAlignment="Top" Width="46"/>
+        <Slider x:Name="BlueSlider" HorizontalAlignment="Left" Margin="168,121,0,0" VerticalAlignment="Top" Width="156" Maximum="255" Value="{Binding Blue}"/>
+        <Label Content="{Binding Value, ElementName=BlueSlider}" HorizontalAlignment="Left" Margin="350,121,0,0" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FFF4F4F5" Height="78" Margin="40,197,28.333,0" Stroke="Black" VerticalAlignment="Top"/>
+        <Label x:Name="ColorHex" Content="{Binding MergedDecimal}" HorizontalAlignment="Left" Margin="40,166,0,0" VerticalAlignment="Top" Width="327"/>
+
     </Grid>
 </Window>
